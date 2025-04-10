@@ -2,8 +2,6 @@
 
 A real-time multiplayer quiz game built with WebSockets that allows multiple players to participate in quizzes simultaneously, with live scoring and progress tracking.
 
-![Multiplayer Online Quiz](https://via.placeholder.com/800x400?text=Multiplayer+Online+Quiz)
-
 ## Features
 
 - **Real-time Multiplayer**: Multiple players can join and participate in the quiz simultaneously
