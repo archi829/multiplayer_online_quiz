@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Network Quiz Game</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    section {
+      margin-bottom: 20px;
+      padding: 20px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+    }
+    .hidden {
+      display: none;
+    }
+    .option {
+      display: block;
+      width: 100%;
+      padding: 10px;
+      margin: 5px 0;
+      text-align: left;
+      background-color: #f0f0f0;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    .option:hover {
+      background-color: #e0e0e0;
+    }
+    .selected {
+      background-color: #4CAF50;
+      color: white;
+    }
+    .correct {
+      background-color: #4CAF50 !important;
+      color: white;
+    }
+    .incorrect {
+      background-color: #f44336 !important;
+      color: white;
+    }
+    
+    #scoreboard, #results {
+      margin-top: 20px;
+      padding: 15px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      background-color: #f9f9f9;
+    }
+    
+    #scoreboard h2, #results h2 {
+      margin-top: 0;
+      color: #333;
+      border-bottom: 1px solid #ddd;
+      padding-bottom: 10px;
+    }
+    
+    #scoreboard-table, #results table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 15px;
+    }
+    
+    #scoreboard-table th, #scoreboard-table td,
+    #results th, #results td {
+      padding: 8px;
+      text-align: left;
+      border-bottom: 1px solid #ddd;
+    }
+    
+    #scoreboard-table th, #results th {
+      background-color: #f2f2f2;
+    }
+    
+    .current-user {
+      background-color: #e6f7ff;
+      font-weight: bold;
+    }
+    
+    #timer {
+      margin: 10px 0;
+      font-weight: bold;
+      color: #e91e63;
+    }
+    
+    #progress {
+      color: #666;
+      font-style: italic;
+    }
+    
+    .medal {
+      margin-right: 5px;
+    }
+    
+    button#startBtn, button#joinBtn {
+      background-color: #4CAF50;
+      color: white;
+      padding: 10px 15px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+    
+    button#startBtn:hover, button#joinBtn:hover {
+      background-color: #45a049;
+    }
+    
+    input#username {
+      padding: 10px;
+      margin-right: 10px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Network Quiz Game</h1>
+
+  <!-- Login -->
+  <section id="login-section">
+    <h2>Enter your username</h2>
+    <input type="text" id="username" placeholder="Your username" />
+    <button id="joinBtn">Join Quiz</button>
+  </section>
+
+  <!-- Quiz Area -->
+  <section id="quizContainer" class="hidden">
+    <div id="questionContainer" class="hidden">
+      <h2 id="question">Loading question...</h2>
+      <div id="options"></div>
+    </div>
+    
+    <!-- Live Scoreboard -->
+    <div id="scoreboard">
+      <h2>Live Scoreboard</h2>
+      <table id="scoreboard-table">
+        <thead>
+          <tr>
+            <th>Player</th>
+            <th>Score</th>
+            <th>Progress</th>
+          </tr>
+        </thead>
+        <tbody id="scoreboard-body"></tbody>
+      </table>
+    </div>
+    
+    <!-- Results Section -->
+    <div id="results" class="hidden">
+      <h2>Final Results</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Rank</th>
+            <th>Player</th>
+            <th>Score</th>
+          </tr>
+        </thead>
+        <tbody id="results-body"></tbody>
+      </table>
+    </div>
+
+    <button id="startBtn">Start Quiz</button>
+  </section>
+
+  <script src="script.js"></script>
+</body>
+</html>
